@@ -1,0 +1,67 @@
+<div>
+
+    Query Keyword: {{query}}
+  
+    <br>
+  
+    <input [(ngModel)]="query">
+  
+  </div>
+  
+   
+  
+  <div>
+  
+    Feature Collection: {{feature}}
+  
+    <br>
+  
+    <button (click)="toggleFeatured('on')">Featured</button>
+  
+    <button (click)="toggleFeatured('off')">Not Featured</button>
+  
+  </div>
+  
+   
+  
+  <div>
+  
+    Orientation Selection: {{orientation}}
+  
+    <br>
+  
+    <button (click)="orientation='landscape'">landscape</button>
+  
+    <button (click)="orientation='portrait'">portrait</button>
+  
+    <button (click)="orientation='squarish'">squarish</button>
+
+    <button (click)="orientation=undefined">default</button>
+  
+  </div>
+  
+   
+  <br>
+  <div><button (click)="getPhoto()">SHOW ME THE PICTURE!</button></div>
+  
+   
+  
+  <br>
+  
+   <div *ngIf="notFound===true">Whoops! Cannot find picture!</div>
+  
+  <li *ngIf="randomPhoto.like_count">This photo received <span style="color: #ff0000">{{randomPhoto.like_count}} </span>likes</li>
+  
+  <li *ngIf="randomPhoto.download_count">This photo got download <span style="color: #ff0000">{{randomPhoto.download_count}} </span>times</li>
+  
+  <li *ngIf="randomPhoto.photographer">This photo author is <span style="color: #ff0000">{{randomPhoto.photographer}} </span> </li>
+  
+  <li *ngIf="randomPhoto.photo_description">Description for this photo: <span style="color: #ff0000">{{randomPhoto.photo_description}} </span> </li>
+  
+  <li *ngIf="randomPhoto.photo_alt_description">Short description for this photo: <span style="color: #ff0000">{{randomPhoto.photo_alt_description}} </span> </li>
+  
+  <div *ngIf="randomPhoto.small_Url">
+  
+    <img (click)="showHighReso(randomPhoto.high_resolution_Url)" src={{randomPhoto.small_Url}}
+  
+      alt="small picture">
